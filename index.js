@@ -221,7 +221,7 @@ app.get('/getNext10Transactions', function(req, res) {
   var currentIndex = parseInt(req.param('list_index'));
   var tempTransactionList = [];
   var i;
-  for(i = currentIndex + 1; i < (currentIndex + 11); i++) {
+  for(i = currentIndex; i < (currentIndex + 10); i++) {
     tempTransactionList.push(transactionArray[i]);
   }
   res.send(tempTransactionList);
