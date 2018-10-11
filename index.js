@@ -220,8 +220,9 @@ app.get('/initTransactionList', function(req, res) {
 app.get('/getNext10Transactions/:list_index', function(req, res) {
   var currentIndex = parseInt(req.params.list_index);
   var tempTransactionList = [];
+  var tempMax = (currentIndex + 10);
   var i;
-  for(i = currentIndex; i < (currentIndex + 10); i++) {
+  for(i = currentIndex; i < tempMax; i++) {
     tempTransactionList.push(transactionArray[i]);
   }
   res.send(tempTransactionList);
