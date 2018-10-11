@@ -223,7 +223,9 @@ app.get('/getNext10Transactions/:list_index', function(req, res) {
   var tempMax = (currentIndex + 10);
   var i;
   for(i = currentIndex; i < tempMax; i++) {
-    tempTransactionList.push(transactionArray[i]);
+    if(i < transactionArray.length) {
+      tempTransactionList.push(transactionArray[i]);
+    }
   }
   res.send(tempTransactionList);
 });
