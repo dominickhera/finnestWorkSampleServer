@@ -217,8 +217,8 @@ app.get('/initTransactionList', function(req, res) {
   res.send(initTransactionList);
 });
 
-app.get('/getNext10Transactions', function(req, res) {
-  var currentIndex = parseInt(req.param('list_index'));
+app.get('/getNext10Transactions/:list_index', function(req, res) {
+  var currentIndex = parseInt(req.list_index);
   var tempTransactionList = [];
   var i;
   for(i = currentIndex; i < (currentIndex + 10); i++) {
