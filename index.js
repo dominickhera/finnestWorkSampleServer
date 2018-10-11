@@ -217,6 +217,16 @@ app.get('/initTransactionList', function(req, res) {
   res.send(initTransactionList);
 });
 
+app.get('/getNext10Transactions', function(req, res) {
+  var currentIndex = parseInt(req.param('list_index'));
+  var tempTransactionList = [];
+  var i;
+  for(i = currentIndex + 1; i < (currentIndex + 11); i++) {
+    tempTransactionList.push(transactionArray[i]);
+  }
+  res.send(tempTransactionList);
+});
+
 var port = process.env.PORT || 1337;
 var httpServer = require('http').createServer(app);
 httpServer.listen(port, function() {
